@@ -1,0 +1,23 @@
+.App ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.App ul li {
+  display: inline-block;
+  padding: 15px;
+  margin: 15px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+}
+
+.App a {
+  text-decoration: none;
+}
+
+.App a.active {
+  text-decoration: underline;
+}
