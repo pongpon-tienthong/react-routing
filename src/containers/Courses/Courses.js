@@ -14,24 +14,22 @@ class Courses extends Component {
 
   render() {
     const courses = this.state.courses.map(course => (
-      <NavLink to={`${this.props.match.url}/${course.id}`} key={course.id}>
+      <NavLink
+        to={{
+          pathname: `${this.props.match.url}/${course.id}`,
+          search: `?title=${course.title}`
+        }}
+        key={course.id}
+      >
         <article className="Course">{course.title}</article>
       </NavLink>
-    ));
-
-    const routes = this.state.courses.map(course => (
-      <Route
-        key={course.id}
-        path={`${this.props.match.url}/${course.id}`}
-        render={() => <Course id={course.id} title={course.title} />}
-      />
     ));
 
     return (
       <div>
         <h1>Amazing Udemy Courses</h1>
         <section className="Courses">{courses}</section>
-        {routes}
+        <Route path={`${this.props.match.url}/:id`} component={Course} />
       </div>
     );
   }
